@@ -1,0 +1,25 @@
+@use "~/styles/variables" as *;
+
+.title {
+  font-size: 12px;
+  font-weight: bold;
+  color: $gray-600;
+  text-transform: uppercase;
+  margin-bottom: $base-spacing-small;
+}
+
+.link {
+  display: flex;
+  justify-content: space-between;
+  color: $black;
+  font-size: 14px;
+  margin-bottom: $base-spacing-small;
+
+  &Selected {
+    font-weight: bold;
+  }
+}
+
+.bubble {
+  color: $gray-500;
+}

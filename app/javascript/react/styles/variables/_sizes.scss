@@ -1,0 +1,57 @@
+// Font Sizes
+$base-font-size: 16px;
+
+// Line height
+$base-line-height: 1.5;
+$heading-line-height: 1.2;
+
+$base-border-radius: 5px;
+$base-spacing: $base-font-size;
+$base-spacing-large: $base-spacing * 2;
+$base-spacing-x-large: $base-spacing * 3;
+$base-spacing-small: $base-spacing / 2;
+$base-spacing-x-small: $base-spacing / 3;
+$base-z-index: 0;
+
+$nav-width: 65px;
+$subnav-width: 250px;
+
+$size-map: (
+  "none": 0px,
+  "small": $base-spacing-small,
+  "medium": $base-spacing,
+  "large": $base-spacing-large,
+);
+
+$direction-map: (
+  t: "top",
+  r: "right",
+  b: "bottom",
+  l: "left",
+);
+
+$spacing-map: (
+  m: "margin",
+  p: "padding",
+);
+
+@each $size-key, $size in $size-map {
+  @each $direction-key, $direction in $direction-map {
+    @each $spacing-key, $spacing in $spacing-map {
+      .#{$spacing-key}#{$direction-key}-#{$size-key} {
+        #{$spacing}-#{$direction}: #{$size};
+      }
+    }
+  }
+}
+
+@each $size-key, $size in $size-map {
+  @each $spacing-key, $spacing in $spacing-map {
+    .#{$spacing-key}-#{$size-key} {
+      #{$spacing}: #{$size};
+    }
+  }
+}
+
+$small-screen-breakpoint: 768px;
+$large-screen-breakpoint: 1200px;

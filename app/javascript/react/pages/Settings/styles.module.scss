@@ -1,0 +1,8 @@
+@use "~/styles/variables" as *;
+
+.settings {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: $base-spacing-small;
+  margin-bottom: $base-spacing-large;
+}

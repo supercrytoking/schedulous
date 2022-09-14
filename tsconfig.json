@@ -1,0 +1,21 @@
+// jsconfig.json
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": false,
+    "target": "es2015",
+    "module": "commonjs",
+    "strict": true,
+    "jsx": "preserve",
+    "baseUrl": "./app/javascript/react",
+    "paths": {
+      "~/*": ["./*"]
+    }
+  }
+}

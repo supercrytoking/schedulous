@@ -1,0 +1,80 @@
+@use "~/styles/variables" as *;
+
+.admin {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  background: $gray-200;
+  position: relative;
+}
+
+.content {
+  position: absolute;
+  background: $white;
+  border-top-left-radius: $base-border-radius;
+  box-shadow: $base-shadow-large;
+  display: flex;
+  flex-direction: column;
+  left: $subnav-width + $nav-width;
+  width: calc(100% - #{$subnav-width + $nav-width});
+  overflow: hidden;
+  height: 100%;
+  transition: all 500ms ease;
+
+  &Collapsed {
+    left: $nav-width;
+    width: calc(100% - #{$nav-width});
+  }
+}
+
+.collapse {
+  margin-right: $base-spacing-small;
+  outline: none;
+  border: none;
+  background: none;
+  position: relative;
+  text-indent: -1000000px;
+  padding: $base-spacing-small;
+  cursor: pointer;
+
+  &:before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-bottom: 3px solid;
+    border-right: 3px solid;
+    transform: rotate(135deg);
+    right: 50%;
+    top: 50%;
+    translate: 50% -50%;
+    border-color: $gray-900;
+  }
+
+  &Left {
+    transform: rotate(180deg);
+  }
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 $base-spacing;
+  border-bottom: 1px solid $gray-400;
+}
+
+.header {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 80px;
+}
+
+.center {
+  flex: 1;
+  overflow-y: auto;
+}

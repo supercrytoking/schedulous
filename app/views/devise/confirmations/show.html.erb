@@ -1,0 +1,24 @@
+<% content_for :body_class, 'silo' %>
+
+<div class="auth">
+  <%= render "devise/shared/sidebar" %>
+
+  <div class="auth__form">
+    <div class="auth__form-inner">
+      <%= simple_form_for(resource, as: resource_name, url: "/confirmation") do |f| %>
+        <h2>Set Your Password</h2>
+
+        <div class="form-inputs">
+          <%= f.input :password, required: true, label: false, placeholder: 'Password' %>
+          <%= f.input :confirmation_token, as: :hidden %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Get Access Now" %>
+        </div>
+      <% end %>
+      <br>
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>

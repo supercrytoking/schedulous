@@ -1,0 +1,9 @@
+// jsconfig.json
+{
+  "compilerOptions": {
+    "baseUrl": "./app/javascript/react",
+    "paths": {
+      "~/*": ["./*"]
+    }
+  }
+}

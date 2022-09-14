@@ -1,0 +1,95 @@
+@use "~/styles/variables" as *;
+
+$icon-size: $nav-width;
+
+.navContainer {
+  background: $gray-300;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: $base-spacing-small 0;
+}
+
+.navWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.nav {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo {
+  width: $icon-size;
+  height: $icon-size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconSpacer {
+  display: flex;
+  flex: 1;
+}
+
+.link {
+  cursor: pointer;
+  align-items: center;
+  display: flex;
+  outline: none;
+  color: $gray;
+  font-size: 14px;
+  width: $icon-size;
+  height: $icon-size;
+  justify-content: center;
+  position: relative;
+
+  &Selected {
+    background: $gray-200;
+
+    &:before {
+      content: "";
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAA9SURBVHgB3YwxDgAgDAIppf7/jU6O/kAT3UyHzpKwHBeAj2IZ7GOulxGFkKyJoYIYIUgOZaOZnbbmcN6vDbmiBAugk4WlAAAAAElFTkSuQmCC);
+      position: absolute;
+      top: -10px;
+      right: 0;
+      width: 10px;
+      height: 10px;
+    }
+
+    &:after {
+      content: "";
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAA9SURBVHgB3YwxDgAgDAIppf7/jU6O/kAT3UyHzpKwHBeAj2IZ7GOulxGFkKyJoYIYIUgOZaOZnbbmcN6vDbmiBAugk4WlAAAAAElFTkSuQmCC);
+      position: absolute;
+      bottom: -10px;
+      right: 0;
+      width: 10px;
+      height: 10px;
+      transform: scaleY(-1);
+    }
+  }
+}
+
+.accountMenu {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  box-sizing: border-box;
+
+  hr {
+    width: calc(100% - $base-spacing-large);
+  }
+
+  &Link {
+    cursor: pointer;
+    color: $gray-900;
+    outline: none;
+    padding: $base-spacing-small 0;
+  }
+}

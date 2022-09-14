@@ -1,0 +1,7 @@
+@use "~/styles/variables" as *;
+
+.subnav {
+  background: $gray-200;
+  width: $subnav-width;
+  padding: $base-spacing;
+}

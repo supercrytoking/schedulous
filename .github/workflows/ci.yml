@@ -1,0 +1,71 @@
+name: Run unit test and check code convention
+
+on:
+  push:
+    branches:
+      - '**'  # matches every branch
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      redis:
+        # Docker Hub image
+        image: redis
+        # Set health checks to wait until redis has started
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 6379:6379
+      postgres:
+        image: postgres:14
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        ports:
+          - 5432:5432
+        # needed because the postgres container does not provide a healthcheck
+        # tmpfs makes DB faster by using RAM
+        options: >-
+          --mount type=tmpfs,destination=/var/lib/postgresql/data
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      RAILS_ENV: test
+      GEMFILE_RUBY_VERSION: 2.7.4
+      PGHOST: localhost
+      PGUSER: postgres
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.4
+          bundler-cache: false
+      - name: Bundle install
+        run: bundle
+      - name: Copy database configuration
+        run: cp config/database.ci.yml config/database.yml
+      - name: Create DB
+        env:
+          RAILS_ENV: test
+          POSTGRES_PASSWORD: postgres
+        run: |
+          bin/rails db:prepare
+      - name: yarn install
+        run: yarn install
+      - name: Run tests
+        env:
+          RAILS_ENV: test
+          POSTGRES_PASSWORD: postgres
+        run: |
+          bundle exec rspec
+      - name: Rubocop
+        run: bundle exec rubocop

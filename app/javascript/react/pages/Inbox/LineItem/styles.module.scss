@@ -1,0 +1,65 @@
+@use "~/styles/variables" as *;
+
+.person {
+  display: flex;
+  padding: $base-spacing-small;
+  border-bottom: 1px solid $gray-400;
+  width: 340px;
+  cursor: pointer;
+  align-items: center;
+
+  &Selected {
+    background: $gray-100;
+    box-shadow: inset 4px 0 0 0 $blue;
+  }
+}
+
+.dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  border: 3px solid $white;
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  background-color: $success;
+}
+
+.avatar {
+  width: 48px;
+  margin-right: $base-spacing-small;
+  position: relative;
+}
+
+.content {
+  flex: 1;
+  padding-right: $base-spacing-small;
+  overflow: hidden;
+}
+
+.name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.subtext {
+  color: $gray;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bubble {
+  width: 24px;
+  height: 24px;
+  background-color: $blue;
+  color: $white;
+  font-weight: bold;
+  font-size: 12px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+}

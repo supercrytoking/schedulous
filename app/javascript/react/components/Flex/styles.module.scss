@@ -1,0 +1,170 @@
+@use "~/styles/variables" as *;
+@use "~/styles/media.module.scss" as *;
+
+.flex {
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.inlineFlex {
+  display: inline-flex;
+}
+
+.flex-align-center {
+  align-items: center;
+}
+
+.flex-align-flex-end {
+  align-items: flex-end;
+}
+
+.flex-align-flex-start {
+  align-items: flex-start;
+}
+
+.flex-direction-column {
+  flex-direction: column;
+}
+
+.flex-direction-column-reverse {
+  flex-direction: column-reverse;
+}
+
+.flex-direction-row {
+  flex-direction: row;
+}
+
+.flex-justify-center {
+  justify-content: center;
+}
+
+.flex-justify-flex-end {
+  justify-content: flex-end;
+}
+
+.flex-justify-flex-start {
+  justify-content: flex-start;
+}
+
+.flex-justify-space-between {
+  justify-content: space-between;
+}
+
+.responsive.flex-direction-column,
+.responsive.flex-direction-column-reverse {
+  @media (--small-screen) {
+    align-items: center;
+  }
+}
+
+.responsive.flex-direction-row {
+  @media (--small-screen) {
+    flex-direction: column;
+  }
+}
+
+/* Paddings */
+.padding-xSmall {
+  padding: $base-spacing-x-small;
+}
+
+.padding-small {
+  padding: $base-spacing-small;
+}
+
+.padding-medium {
+  padding: $base-spacing;
+}
+
+.padding-large {
+  padding: $base-spacing-large;
+}
+
+.padding-xLarge {
+  padding: $base-spacing-x-large;
+}
+
+/* Item margin */
+.row-item-margin-xSmall > * + * {
+  margin-left: $base-spacing-x-small;
+}
+
+.responsive.row-item-margin-xSmall > * + * {
+  @media (--small-screen) {
+    margin-left: 0;
+    margin-top: $base-spacing-x-small;
+  }
+}
+
+.row-item-margin-small > * + * {
+  margin-left: $base-spacing-small;
+}
+
+.responsive.row-item-margin-small > * + * {
+  @media (--small-screen) {
+    margin-left: 0;
+    margin-top: $base-spacing-small;
+  }
+}
+
+.row-item-margin-medium > * + * {
+  margin-left: $base-spacing;
+}
+
+.responsive.row-item-margin-medium > * + * {
+  @media (--small-screen) {
+    margin-left: 0;
+    margin-top: $base-spacing;
+  }
+}
+
+.row-item-margin-large > * + * {
+  margin-left: $base-spacing-large;
+}
+
+.responsive.row-item-margin-large > * + * {
+  @media (--small-screen) {
+    margin-left: 0;
+    margin-top: $base-spacing-large;
+  }
+}
+
+.row-item-margin-xLarge > * + * {
+  margin-left: $base-spacing-x-large;
+}
+
+.responsive.row-item-margin-xLarge > * + * {
+  @media (--small-screen) {
+    margin-left: 0;
+    margin-top: $base-spacing-x-large;
+  }
+}
+
+.column-item-margin-xSmall > * + * {
+  margin-top: $base-spacing-x-small;
+}
+
+.column-item-margin-small > * + * {
+  margin-top: $base-spacing-small;
+}
+
+.column-item-margin-medium > * + * {
+  margin-top: $base-spacing;
+}
+
+.column-item-margin-large > * + * {
+  margin-top: $base-spacing-large;
+}
+
+.column-item-margin-xLarge > * + * {
+  margin-top: $base-spacing-x-large;
+}
+
+.expand {
+  flex: 1;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}

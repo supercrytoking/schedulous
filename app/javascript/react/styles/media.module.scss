@@ -1,0 +1,7 @@
+@use "./variables/sizes" as *;
+
+@custom-media --small-screen (width <= $small-screen-breakpoint);
+@custom-media --small-or-medium-screen (width < $large-screen-breakpoint);
+@custom-media --medium-screen (width > $small-screen-breakpoint) and (width < $large-screen-breakpoint);
+@custom-media --medium-or-large-screen (width > $small-screen-breakpoint);
+@custom-media --large-screen (width >= $large-screen-breakpoint);

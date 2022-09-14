@@ -1,0 +1,43 @@
+@use "~/styles/variables" as *;
+
+.settings {
+  display: inline;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: $base-spacing-small;
+  margin-bottom: $base-spacing-large;
+
+  .setting {
+    padding: $base-spacing;
+    border-radius: $base-border-radius;
+    border: 1px solid $gray-400;
+    flex: 1;
+    margin-bottom: $base-spacing;
+
+    &Inner {
+      display: flex;
+    }
+
+    &Icon {
+      width: 50px;
+      height: 50px;
+      margin-right: $base-spacing;
+      background: $gray-200;
+      border-radius: $base-border-radius;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &Content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+    }
+
+    &Text {
+      padding-right: 5px;;
+    }
+  }
+}
+

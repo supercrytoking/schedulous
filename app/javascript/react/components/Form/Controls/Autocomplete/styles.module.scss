@@ -1,0 +1,25 @@
+@use "~/styles/variables" as *;
+@forward "~/components/Form/styles.module.scss";
+
+.item {
+  padding: $base-spacing-small;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &Content {
+    flex: 1;
+    display: flex;
+  }
+
+  &Title {
+    font-size: $medium;
+    color: $gray-900;
+    font-weight: $bold-weight;
+  }
+
+  &Subtitle {
+    font-size: $small;
+    color: $gray-600;
+  }
+}

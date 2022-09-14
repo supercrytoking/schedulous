@@ -1,0 +1,27 @@
+<% page_title page_title: 'Log In' %>
+
+<% content_for :body_class, 'silo' %>
+
+<div class="auth">
+
+  <div class="auth__form">
+    <div class="auth__form-inner">
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <h2>Sign In</h2>
+
+        <div class="form-inputs">
+          <%= f.input :email, required: false, autofocus: true, input_html: { autocomplete: "email" } %>
+          <%= f.input :password, required: false, input_html: { autocomplete: "current-password" } %>
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        </div>
+
+        <%= button_tag type: 'submit', class: 'btn', data: { disable_with: '<i class="fas fa-circle-notch fa-spin mr-1"></i> Loggin In...' } do %>
+          Log In
+        <% end %>
+        <p class="auth__link">No account yet? <%= link_to "Sign Up", new_user_registration_path %></p>
+        <%= render "devise/shared/links" %>
+      <% end %>
+    </div>
+  </div>
+  <%= render "devise/shared/sidebar" %>
+</div>

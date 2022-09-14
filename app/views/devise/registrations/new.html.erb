@@ -1,0 +1,41 @@
+<% page_title page_title: 'Sign Up Free' %>
+
+<% content_for :body_class, 'silo' %>
+
+<div class="auth">
+  <%= render "devise/shared/sidebar" %>
+  <div class="auth__form">
+    <div class="auth__form-inner">
+      <% resource.person = Person.new %>
+
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <h2>Sign Up</h2>
+        <%= devise_error_messages! %>
+        <div class="form-inputs">
+          <%= f.fields_for :person do |p| %>
+            <%= p.fields_for :account, Account.new do |a| %>
+              <%= a.input :name, label: 'Business Name', required: true %>
+            <% end %>
+          <% end %>
+
+          <%= f.input :email, required: true, input_html: { autocomplete: "email" } %>
+          <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" } %>
+
+          <%= invisible_captcha %>
+
+          <div style="display: flex;">
+            <label style="font-weight: normal;" for="accepts_tos_and_privacy">I accept the <%= link_to 'Terms of Service', page_path('terms') %> and <%= link_to 'Privacy Policy', page_path('privacy') %></label>
+          </div>
+        </div>
+
+        <%= button_tag type: 'submit', class: 'btn', data: { disable_with: '<i class="fas fa-circle-notch fa-spin mr-1"></i> Creating Account...' } do %>
+          Sign Up
+        <% end %>
+
+        <p class="auth__link">Already have an account? <%= link_to 'Sign In', new_user_session_path %></p>
+        <%= render "devise/shared/links" %>
+      <% end %>
+    </div>
+
+  </div>
+</div>

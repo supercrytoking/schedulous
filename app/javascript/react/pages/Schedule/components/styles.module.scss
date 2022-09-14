@@ -1,0 +1,68 @@
+@use "~/styles/variables" as *;
+
+.timeslot {
+  background: $gray-200;
+  padding: $base-spacing;
+  margin-bottom: $base-spacing-small;
+  border-radius: $base-border-radius;
+}
+
+.hidden {
+  display: none;
+}
+
+.daynameWrapper {
+  display: flex;
+  width: 100%;
+  flex: 1;
+}
+
+.hourWrapper {
+  display: flex;
+  flex: 1;
+}
+
+.buttonWrapper {
+  justify-content: flex-end;
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 40px;
+
+  button + button {
+    margin-left: $base-spacing;
+  }
+}
+
+.btnAddMoreWrapper {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 20px;
+}
+
+.select {
+  flex: 1;
+
+  &Trash {
+    flex: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -20px;
+  }
+
+  & + & {
+    margin-left: $base-spacing;
+  }
+}
+
+.flex {
+  display: flex;
+
+  &Item {
+    flex: 1;
+
+    & + & {
+      margin-left: $base-spacing;
+    }
+  }
+}

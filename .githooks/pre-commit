@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+
+def ensure_not_production_branch
+  if `git rev-parse --abbrev-ref HEAD` == "main"
+    message = <<~STR.strip
+      NO COMMITS ON THE MASTER BRANCH!!
+    STR
+
+    print_and_exit(message)
+  end
+end
+
+def ensure_no_debugging_statements
+  # Check if we left debugger or binding.pry in the code
+  stdout_debugger = `git grep -Ic debugger -- :^.githooks`
+  stdout_binding  = `git grep -Ic "binding.pry" -- :^.githooks`
+
+  if stdout_debugger.length.nonzero? || stdout_binding.length.nonzero?
+    message = <<~STR.strip
+      You left some binding.pry or debugger messages in your code. Please clean up after yourself.
+      ============================================================================================
+      #{stdout_debugger}
+      #{stdout_binding}
+      ============================================================================================
+      DID NOT COMMIT!!!
+    STR
+
+    print_and_exit(message)
+  end
+end
+
+def print_and_exit(message)
+  puts "*"
+  puts message
+  puts "*"
+  exit 1
+end
+
+ensure_not_production_branch
+ensure_no_debugging_statements

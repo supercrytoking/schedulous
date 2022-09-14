@@ -1,0 +1,139 @@
+@use "~/styles/variables" as *;
+
+.label {
+  top: 13px;
+  position: absolute;
+  color: $gray-400;
+  padding: 0 $base-spacing;
+  left: 0;
+  pointer-events: none;
+}
+
+.control {
+  border: 1px solid $gray-400;
+  border-radius: $base-border-radius;
+  padding: $base-spacing;
+  outline: none;
+  width: 100%;
+  background: $white;
+}
+
+.selectControl {
+  font-size: 13px;
+  min-width: 120px;
+}
+
+.input {
+  display: block;
+  position: relative;
+  margin-bottom: $base-spacing;
+
+  &Nomargin {
+    margin-bottom: 0;
+  }
+
+  &Focused,
+  &Filled,
+  &Error {
+    .label {
+      transition: all 300ms ease;
+      background: $white;
+      padding: 0 10px;
+      top: -10px;
+      left: 7px;
+      transform: translateY(0);
+      font-size: $xSmall;
+      padding: 0 5px;
+    }
+  }
+
+  &Error {
+    .label {
+      color: $error;
+    }
+
+    .control {
+      border-color: $error;
+    }
+  }
+
+  &Focused {
+    .label {
+      color: $primary;
+    }
+
+    .control {
+      border-color: $primary;
+      box-shadow: 0 0 0 2px rgba($primary, 0.2);
+    }
+  }
+
+  &Filled {
+    .label {
+      color: $gray-600;
+    }
+
+    .control {
+      border-color: $gray-500;
+    }
+  }
+}
+
+ul.optionsList {
+  cursor: pointer;
+  border: 1px solid #cbd5e0;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 999;
+  background-color: #fff;
+  width: 100%;
+}
+
+.optionItem {
+  cursor: pointer;
+  border-bottom: 1px solid #cbd5e0;
+  padding: 4px 16px;
+}
+
+.optionItem:hover {
+  background-color: #cbd5e0;
+}
+
+.arrow {
+  position: absolute;
+  border: solid #cbd5e0;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  right: 15px;
+  top: 50%;
+  margin-top: -5px;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.btnCheckbox {
+  border: 1px solid $gray-500;
+  display: inline-block;
+  padding: 4px 8px;
+  text-align: center;
+  border-radius: $base-border-radius;
+  color: $primary;
+  margin-bottom: 15px;
+  cursor: pointer;
+  flex: 1;
+  background-color: $white;
+
+  & + & {
+    margin-left: $base-spacing;
+  }
+}
+
+.isChecked {
+  color: #fff;
+  background-color: $primary;
+  border-color: $primary;
+}

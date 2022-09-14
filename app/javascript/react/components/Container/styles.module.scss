@@ -1,0 +1,16 @@
+@use "~/styles/variables" as *;
+
+.container {
+  box-sizing: border-box;
+  padding: $base-spacing-large;
+
+  &Small {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &XSmall {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+}

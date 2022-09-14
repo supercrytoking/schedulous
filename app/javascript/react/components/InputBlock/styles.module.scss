@@ -1,0 +1,35 @@
+@use "~/styles/variables" as *;
+
+.blockWrapper {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 30px;
+}
+
+.titleWrapper {
+  padding-right: 30px;
+  width: 220px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  color: $gray-700;
+  padding-bottom: 15px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: $gray-600;
+  padding-bottom: 15px;
+}
+
+.inputWrapper {
+  border: 1px solid $gray-400;
+  padding: 30px;
+  border-radius: 4px;
+  width: 560px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}

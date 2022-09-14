@@ -1,0 +1,30 @@
+@use "~/styles/variables" as *;
+
+.header {
+  padding: 0 0 $base-spacing 0;
+  border-bottom: 1px solid $gray-400;
+  margin-bottom: $base-spacing;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: top;
+
+  &WithToggle {
+    padding-bottom: 0;
+  }
+}
+
+.headerContent {
+}
+
+.title {
+  font-size: $h5;
+  font-weight: $bold-weight;
+  color: $gray-900;
+}
+
+.subtitle {
+  font-size: $h6;
+  font-weight: $medium-weight;
+  color: $gray-600;
+}

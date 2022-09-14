@@ -1,0 +1,10 @@
+@use "~/styles/variables" as *;
+@forward "~/components/Form/Controls/Autocomplete/styles.module.scss";
+
+.avatar {
+  margin-right: $base-spacing-small;
+}
+
+.itemUnselected {
+  opacity: 0.5;
+}

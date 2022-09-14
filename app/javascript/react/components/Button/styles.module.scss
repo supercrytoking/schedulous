@@ -1,0 +1,102 @@
+@use "~/styles/variables" as *;
+
+.button {
+  align-items: center;
+  appearance: none;
+  background-color: $base-action-color;
+  border: 0;
+  border-radius: $base-border-radius;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: $base-font-family;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  font-weight: $xBold-weight;
+  line-height: 1.5;
+  padding: $base-spacing $base-spacing-large;
+  text-align: center;
+  text-decoration: none;
+  transition: all $base-duration $base-timing;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &Primary {
+    color: $primary;
+    background: $primary-base;
+    color: #fff;
+
+    &:active,
+    &:hover {
+      background: $primary-600;
+    }
+
+    &:disabled {
+      background: $primary-300;
+    }
+  }
+
+  &Secondary {
+    color: $primary;
+    background: transparent;
+    border: 1px solid $primary;
+
+    &:active,
+    &:hover {
+      border-color: $primary-600;
+      color: $primary-700;
+    }
+
+    &:disabled {
+      border-color: $primary-300;
+      color: $primary-300;
+    }
+  }
+
+  &Tertiary {
+    color: $gray-900;
+    background: transparent;
+    border: 1px solid $gray-400;
+
+    &:active,
+    &:hover {
+      border-color: $gray-600;
+      color: $gray-700;
+    }
+
+    &:disabled {
+      border-color: $gray-400;
+      color: $gray-400;
+    }
+  }
+
+  &Black {
+    background: $gray-900;
+    color: $white;
+
+    &:active,
+    &:hover {
+      background: $gray-800;
+    }
+
+    &:disabled {
+      background: $gray-400;
+    }
+  }
+
+  &Small {
+    font-size: 12px;
+    padding: $base-spacing-small $base-spacing;
+  }
+
+  &Block {
+    display: block;
+    width: 100%;
+  }
+}

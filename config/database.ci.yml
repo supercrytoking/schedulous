@@ -1,0 +1,11 @@
+default: &default
+  adapter: postgresql
+  host: localhost
+  username: postgres
+  password: <%=ENV['POSTGRES_PASSWORD'] %>
+  encoding: unicode
+  pool: <%= ENV['DATABASE_POOL'].presence || 5 %>
+
+test:
+  <<: *default
+  database: schedulous_test

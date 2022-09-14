@@ -1,0 +1,122 @@
+// Base Colors
+$blue: #194bfb;
+$primary: $blue;
+$primary-700: #1237bb;
+$primary-600: #143fd8;
+$primary-base: $primary;
+$primary-400: #436cff;
+$primary-300: #95adff;
+$primary-200: #b8cdff;
+$primary-100: #e8edff;
+
+$success: #22c55e;
+$success-base: $success;
+$success-dark: #16a34a;
+$success-light: #4ade80;
+
+$warning: #facc15;
+$warning-base: $warning;
+$warning-dark: #eab308;
+$warning-light: #fde047;
+
+$error: #ff4747;
+$error-base: $error;
+$error-dark: #dd3333;
+$error-light: #ff7171;
+
+$orange: #ff784b;
+$amber: #ffc837;
+$purple: #936dff;
+
+// Grayscale
+$gray: #718096;
+$gray-50: #fafafa;
+$gray-100: #f7fafc;
+$gray-200: #edf2f7;
+$gray-300: #e2e8f0;
+$gray-400: #cbd5e0;
+$gray-500: #a0aec0;
+$gray-600: $gray;
+$gray-700: #4a5568;
+$gray-800: #2d3748;
+$gray-900: #1a202c;
+
+$black: #000;
+$white: #fff;
+
+// Social
+$facebook: #3b5998;
+$twitter: #4090ff;
+$google: #db4437;
+
+// Theme Colors
+$base-font-color: $gray-900;
+$base-action-color: $blue;
+
+$base-background-color: $white;
+$secondary-background-color: $gray-50;
+$base-border-color: $gray-300;
+
+// Shadows
+$base-shadow-small: 0 2px 4px rgba($black, 0.1);
+$base-shadow: 0 3px 10px rgba($black, 0.1);
+$base-shadow-large: 0 5px 20px rgba($black, 0.1);
+
+$colors: (
+  "blue": $blue,
+  "primary": $primary,
+  "primary-700": $primary-700,
+  "primary-600": $primary-600,
+  "primary-base": $primary-base,
+  "primary-400": $primary-400,
+  "primary-300": $primary-300,
+  "primary-200": $primary-200,
+  "primary-100": $primary-100,
+  "success": $success,
+  "success-base": $success-base,
+  "success-dark": $success-dark,
+  "success-light": $success-light,
+  "warning": $warning,
+  "warning-base": $warning-base,
+  "warning-dark": $warning-dark,
+  "warning-light": $warning-light,
+  "error": $error,
+  "error-base": $error-base,
+  "error-dark": $error-dark,
+  "error-light": $error-light,
+  "orange": $orange,
+  "amber": $amber,
+  "purple": $purple,
+  "gray": $gray,
+  "gray-50": $gray-50,
+  "gray-100": $gray-100,
+  "gray-200": $gray-200,
+  "gray-300": $gray-300,
+  "gray-400": $gray-400,
+  "gray-500": $gray-500,
+  "gray-600": $gray-600,
+  "gray-700": $gray-700,
+  "gray-800": $gray-800,
+  "gray-900": $gray-900,
+  "black": $black,
+  "white": $white,
+  "facebook": $facebook,
+  "twitter": $twitter,
+  "google": $google,
+);
+
+@each $color, $value in $colors {
+  .color-#{$color} {
+    color: $value;
+  }
+
+  .bg-#{$color} {
+    background-color: $value;
+  }
+
+  @for $i from 1 through 2 {
+    .border-#{$i}-#{$color} {
+      border: #{$i}px solid $value;
+    }
+  }
+}

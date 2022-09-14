@@ -1,0 +1,10 @@
+@use "~/styles/variables" as *;
+
+.textHeader {
+  margin-right: 5px;
+}
+
+.textHeaderLink {
+  margin-right: 5px;
+  color: $primary-400;
+}
