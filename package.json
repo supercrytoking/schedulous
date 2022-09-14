@@ -50,5 +50,8 @@
     "hooks": {
       "pre-commit": "yarn lint-staged && ruby .githooks/pre-commit"
     }
+  },
+  "engines": {
+    "npm": "16.17.0"
   }
 }
